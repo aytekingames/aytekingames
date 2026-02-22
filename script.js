@@ -1,5 +1,4 @@
 const btn = document.getElementById('theme-toggle');
-
 btn.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     if (isDark) {
