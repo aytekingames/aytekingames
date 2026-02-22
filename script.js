@@ -1,13 +1,16 @@
-const btn = document.getElementById('theme-toggle');
+const themeToggle = document.getElementById('theme-toggle');
 
-btn.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme');
+themeToggle.addEventListener('click', () => {
+    // Mevcut temayı kontrol et
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     
     if (currentTheme === 'dark') {
-        document.body.removeAttribute('data-theme');
-        btn.textContent = '🌙';
+        // Aydınlık moda geç
+        document.documentElement.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
     } else {
-        document.body.setAttribute('data-theme', 'dark');
-        btn.textContent = '☀️';
+        // Karanlık moda geç
+        document.documentElement.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
     }
 });
