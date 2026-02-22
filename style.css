@@ -4,13 +4,13 @@
     --header-bg: #f3f4f6;
     --card-bg: #ffffff;
     --accent: #007aff;
-    --shadow: 0 10px 30px rgba(0,0,0,0.1);
+    --shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 [data-theme="dark"] {
     --bg: #000000;
-    --header-bg: #1c1c1c;
-    --card-bg: #1a1a1a; /* Kartın arka planı üst barla uyumlu olsun */
+    --header-bg: #1a1a1a; /* Logonun siyahından bir tık daha açık gri */
+    --card-bg: #141414;   /* Kartın rengi arka plandan ayrılması için ara ton */
     --text: #ffffff;
     --accent: #ffcc00;
     --shadow: 0 15px 40px rgba(0,0,0,0.6);
@@ -25,6 +25,7 @@ body {
     min-height: 100vh;
 }
 
+/* Üst Bar Tasarımı */
 header {
     width: 100%;
     display: flex;
@@ -33,10 +34,13 @@ header {
     padding: 15px 8%;
     background: var(--header-bg);
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.nav-logo { height: 45px; width: auto; border-radius: 5px; }
 .logo-container { display: flex; align-items: center; gap: 12px; }
+.nav-logo { height: 45px; width: auto; border-radius: 5px; }
 .logo-text { font-weight: 800; font-size: 1.2rem; }
 
 .theme-btn {
@@ -46,76 +50,91 @@ header {
     border-radius: 10px;
     cursor: pointer;
     font-size: 1.2rem;
+    color: var(--text);
 }
 
-/* Oyun Kartı Tasarımı */
-.game-container {
-    padding: 60px 20px;
+/* Ana Konteyner */
+main {
+    padding: 80px 20px;
     display: flex;
     justify-content: center;
 }
 
+/* YATAY OYUN KARTI */
 .game-card {
     background: var(--card-bg);
     width: 100%;
-    max-width: 800px;
-    display: flex; /* Yatay görünüm */
+    max-width: 850px;
+    display: flex;
     align-items: center;
-    padding: 30px;
-    border-radius: 25px;
+    padding: 35px;
+    border-radius: 30px;
     box-shadow: var(--shadow);
-    cursor: pointer;
     text-decoration: none;
+    color: inherit;
+    border: 1px solid rgba(255,255,255,0.05);
 }
 
-/* MOUSE ÜZERİNE GELİNCE BÜYÜME EFEKTİ */
+/* BÜYÜME ANİMASYONU (HOVER) */
 .game-card:hover {
     transform: scale(1.03); /* %3 büyüme */
-    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
+/* Kartın Sol Tarafı (Logo) */
 .game-card-left {
-    flex: 1;
-    max-width: 200px;
+    flex: 0 0 220px; /* Sabit genişlik */
 }
 
 .card-img {
     width: 100%;
+    height: auto;
     border-radius: 20px;
     display: block;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Kartın Sağ Tarafı (Yazılar) */
 .game-card-right {
-    flex: 2;
-    padding-left: 40px;
+    flex: 1;
+    padding-left: 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .game-card-right h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+    font-weight: 800;
 }
 
 .game-card-right p {
     font-size: 1.1rem;
-    line-height: 1.5;
-    opacity: 0.8;
-    margin-bottom: 25px;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: 30px;
 }
 
+/* Buton Tasarımı */
 .play-btn {
-    display: inline-block;
-    padding: 12px 35px;
+    align-self: flex-start;
+    padding: 14px 40px;
     background: var(--accent);
     color: white;
     text-decoration: none;
-    border-radius: 12px;
+    border-radius: 50px;
     font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 [data-theme="dark"] .play-btn { color: #000; }
 
-/* Mobilde (Telefonlarda) alt alta gelmesi için */
-@media (max-width: 600px) {
+/* Mobil Uyumluluk (Telefonlarda alt alta geçer) */
+@media (max-width: 700px) {
     .game-card { flex-direction: column; text-align: center; }
-    .game-card-right { padding-left: 0; padding-top: 20px; }
+    .game-card-left { margin-bottom: 25px; max-width: 180px; }
+    .game-card-right { padding-left: 0; }
+    .play-btn { align-self: center; }
 }
