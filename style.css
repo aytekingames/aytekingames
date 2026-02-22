@@ -1,37 +1,56 @@
-/* Genel Ayarlar */
-body {
+/* Temel Sıfırlama */
+* {
     margin: 0;
-    font-family: sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Her şeyi ortalar */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Header ve Logo Ayarı */
+body {
+    font-family: sans-serif;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Üst Menü ve Logo */
 header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 5%;
-    box-sizing: border-box;
-    background: #fff; /* Başlangıçta beyaz */
+    padding: 20px 5%;
 }
 
 .nav-logo {
-    height: 50px; /* Logonu buradan küçültebilirsin */
+    height: 60px; /* Logonu buradan küçültebilirsin */
     width: auto;
 }
 
-/* Oyun Görselini Ortala */
-.hero {
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Oyun Alanı */
+.game-showcase {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .game-img {
-    width: 300px;
-    border-radius: 15px;
-    display: block;
-    margin: 0 auto 20px;
+    width: 300px; /* Oyun resmini makul bir boyuta çeker */
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.cta-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 25px;
+    background-color: #007aff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
 }
