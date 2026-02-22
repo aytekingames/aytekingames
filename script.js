@@ -1,15 +1,12 @@
 const themeToggle = document.getElementById('theme-toggle');
 
 themeToggle.addEventListener('click', () => {
-    // Mevcut temayı kontrol et
-    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     
-    if (currentTheme === 'dark') {
-        // Aydınlık moda geç
+    if (isDark) {
         document.documentElement.removeAttribute('data-theme');
         themeToggle.textContent = '🌙';
     } else {
-        // Karanlık moda geç
         document.documentElement.setAttribute('data-theme', 'dark');
         themeToggle.textContent = '☀️';
     }
