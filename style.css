@@ -118,12 +118,12 @@ main {
     font-size: 1.1rem;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     /* Butonun büyümesi için transform geçişi */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* BUTONUN ÜZERİNE GELİNCE BÜYÜME EFEKTİ (YENİ EKLENDİ) */
+/* BUTONUN ÜZERİNE GELİNCE BÜYÜME EFEKTİ (YENİ) */
 .play-btn:hover {
-    transform: scale(1.1); /* %10 büyüme */
+    transform: scale(1.15); /* %15 büyüme - İyice belli olsun diye */
     box-shadow: 0 15px 30px rgba(0,122,255,0.4); /* Mavi gölgeyi güçlendir */
 }
 
