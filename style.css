@@ -1,45 +1,47 @@
 :root {
+    /* Aydınlık Tema */
     --bg: #ffffff;
     --text: #1a1a1a;
-    --header-bg: #fdfdfd; /* Tam beyaz değil, biraz gri kırılarak belli olur */
+    --header-bg: #f8f9fa; /* Üst satırın belli olması için hafif gri */
     --accent: #007aff;
-    --header-shadow: 0 2px 10px rgba(0,0,0,0.05); /* Alt satırı belli eden gölge */
+    --header-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 [data-theme="dark"] {
-    --bg: #121212;
+    /* Karanlık Tema */
+    --bg: #0f0f0f; /* Ana arka plan tam siyah tonu */
+    --header-bg: #1a1a1a; /* Üst bar logonla uyumlu ama ayırt edici ton */
     --text: #ffffff;
-    --header-bg: #1e1e1e;
     --accent: #ffcc00;
-    --header-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    --header-shadow: 0 4px 20px rgba(0,0,0,0.5);
 }
 
 * { 
     margin: 0; 
     padding: 0; 
     box-sizing: border-box; 
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* Daha yumuşak geçiş */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); 
 }
 
 body {
     background-color: var(--bg);
     color: var(--text);
-    font-family: 'Inter', -apple-system, sans-serif;
+    font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
+    min-height: 100vh;
 }
 
-/* Üst Barı Ayıran Tasarım */
 header {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 8%;
+    padding: 15px 8%;
     background: var(--header-bg);
-    box-shadow: var(--header-shadow); /* Satırın belli olmasını sağlar */
-    position: sticky; /* Sayfa kayınca tepede kalır */
+    box-shadow: var(--header-shadow);
+    position: sticky;
     top: 0;
     z-index: 1000;
 }
@@ -53,7 +55,7 @@ header {
 .nav-logo {
     height: 55px;
     width: auto;
-    border-radius: 12px;
+    border-radius: 10px;
 }
 
 .logo-text {
@@ -62,14 +64,14 @@ header {
     letter-spacing: -0.5px;
 }
 
-/* Daha Büyük ve Şık Tema Butonu */
+/* Büyük Tema Butonu */
 .theme-btn {
     background: var(--bg);
     border: 2px solid var(--text);
-    padding: 12px 18px; /* Daha büyük yaptık */
-    border-radius: 14px;
+    padding: 10px 16px;
+    border-radius: 12px;
     cursor: pointer;
-    font-size: 1.5rem; /* Emoji boyutu büyüdü */
+    font-size: 1.4rem;
     color: var(--text);
     display: flex;
     align-items: center;
@@ -78,10 +80,11 @@ header {
 }
 
 .theme-btn:hover {
-    transform: scale(1.1); /* Üstüne gelince hafif büyüme */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 
-/* Oyun Tanıtımı */
+/* Oyun Tanıtım Alanı */
 .game-showcase {
     text-align: center;
     margin: 80px 20px;
@@ -90,21 +93,21 @@ header {
 
 .game-img {
     width: 320px;
-    border-radius: 35px;
-    margin-bottom: 30px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
-h1 { font-size: 2.5rem; margin-bottom: 10px; }
-p { font-size: 1.1rem; opacity: 0.8; margin-bottom: 25px; }
+h1 { font-size: 2.8rem; margin-bottom: 15px; }
+p { font-size: 1.2rem; opacity: 0.8; margin-bottom: 30px; line-height: 1.6; }
 
 .cta-btn {
     display: inline-block;
-    padding: 15px 40px;
+    padding: 16px 45px;
     background: var(--accent);
     color: white;
     text-decoration: none;
-    border-radius: 50px; /* Daha modern yuvarlak buton */
+    border-radius: 50px;
     font-weight: bold;
     font-size: 1.1rem;
     box-shadow: 0 10px 20px rgba(0,122,255,0.2);
