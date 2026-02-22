@@ -1,39 +1,37 @@
-/* Logo ve Metin Yan Yana */
-.logo-container {
+/* Genel Ayarlar */
+body {
+    margin: 0;
+    font-family: sans-serif;
     display: flex;
+    flex-direction: column;
+    align-items: center; /* Her şeyi ortalar */
+}
+
+/* Header ve Logo Ayarı */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+    padding: 10px 5%;
+    box-sizing: border-box;
+    background: #fff; /* Başlangıçta beyaz */
 }
 
 .nav-logo {
-    height: 40px; /* Logonun boyutunu buradan ayarlayabilirsin */
+    height: 50px; /* Logonu buradan küçültebilirsin */
     width: auto;
-    border-radius: 5px;
 }
 
-.logo-text {
-    font-weight: 800;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
-}
-
-/* Oyun Tanıtım Alanı (Orta Kısım) */
-.game-showcase {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+/* Oyun Görselini Ortala */
+.hero {
+    text-align: center;
+    margin-top: 50px;
 }
 
 .game-img {
-    width: 300px; /* Oyun görselinin genişliği */
-    max-width: 80%;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-/* "Hemen Oyna" butonu için link düzenlemesi */
-.cta-btn {
-    text-decoration: none;
-    display: inline-block;
+    width: 300px;
+    border-radius: 15px;
+    display: block;
+    margin: 0 auto 20px;
 }
