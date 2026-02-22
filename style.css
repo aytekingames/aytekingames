@@ -1,21 +1,24 @@
 :root {
+    /* Aydınlık Tema Değişkenleri */
     --bg: #ffffff;
     --text: #1a1a1a;
     --header-bg: #f3f4f6;
     --card-bg: #ffffff;
-    --accent: #007aff;
+    --accent: #007aff; /* Mavi buton rengi */
     --shadow: 0 10px 30px rgba(0,0,0,0.05);
 }
 
 [data-theme="dark"] {
+    /* Karanlık Tema Değişkenleri */
     --bg: #000000;
-    --header-bg: #1a1a1a; /* Logonun siyahından bir tık daha açık gri */
-    --card-bg: #141414;   /* Kartın rengi arka plandan ayrılması için ara ton */
+    --header-bg: #1a1a1a;
+    --card-bg: #141414;
     --text: #ffffff;
-    --accent: #ffcc00;
+    --accent: #ffcc00; /* Sarı buton rengi */
     --shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
+/* Tüm elementler için yumuşak geçiş */
 * { margin: 0; padding: 0; box-sizing: border-box; transition: all 0.3s ease; }
 
 body {
@@ -25,7 +28,7 @@ body {
     min-height: 100vh;
 }
 
-/* Üst Bar Tasarımı */
+/* Üst Bar */
 header {
     width: 100%;
     display: flex;
@@ -53,7 +56,7 @@ header {
     color: var(--text);
 }
 
-/* Ana Konteyner */
+/* Ana İçerik Alanı */
 main {
     padding: 80px 20px;
     display: flex;
@@ -73,19 +76,17 @@ main {
     text-decoration: none;
     color: inherit;
     border: 1px solid rgba(255,255,255,0.05);
+    /* Kartın büyümesi için transform geçişi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* BÜYÜME ANİMASYONU (HOVER) */
+/* Kartın Üzerine Gelince Büyüme */
 .game-card:hover {
-    transform: scale(1.03); /* %3 büyüme */
+    transform: scale(1.02);
     box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
-/* Kartın Sol Tarafı (Logo) */
-.game-card-left {
-    flex: 0 0 220px; /* Sabit genişlik */
-}
-
+.game-card-left { flex: 0 0 220px; }
 .card-img {
     width: 100%;
     height: auto;
@@ -94,7 +95,6 @@ main {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Kartın Sağ Tarafı (Yazılar) */
 .game-card-right {
     flex: 1;
     padding-left: 45px;
@@ -103,20 +103,10 @@ main {
     justify-content: center;
 }
 
-.game-card-right h2 {
-    font-size: 2.2rem;
-    margin-bottom: 12px;
-    font-weight: 800;
-}
+.game-card-right h2 { font-size: 2.2rem; margin-bottom: 12px; font-weight: 800; }
+.game-card-right p { font-size: 1.1rem; line-height: 1.6; opacity: 0.85; margin-bottom: 30px; }
 
-.game-card-right p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    opacity: 0.85;
-    margin-bottom: 30px;
-}
-
-/* Buton Tasarımı */
+/* BUTON TASARIMI */
 .play-btn {
     align-self: flex-start;
     padding: 14px 40px;
@@ -127,11 +117,24 @@ main {
     font-weight: bold;
     font-size: 1.1rem;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    /* Butonun büyümesi için transform geçişi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* BUTONUN ÜZERİNE GELİNCE BÜYÜME EFEKTİ (YENİ EKLENDİ) */
+.play-btn:hover {
+    transform: scale(1.1); /* %10 büyüme */
+    box-shadow: 0 15px 30px rgba(0,122,255,0.4); /* Mavi gölgeyi güçlendir */
 }
 
 [data-theme="dark"] .play-btn { color: #000; }
 
-/* Mobil Uyumluluk (Telefonlarda alt alta geçer) */
+/* Karanlık Modda Buton Hover Rengi */
+[data-theme="dark"] .play-btn:hover {
+    box-shadow: 0 15px 30px rgba(255, 204, 0, 0.4); /* Sarı gölgeyi güçlendir */
+}
+
+/* Mobil Uyumluluk */
 @media (max-width: 700px) {
     .game-card { flex-direction: column; text-align: center; }
     .game-card-left { margin-bottom: 25px; max-width: 180px; }
