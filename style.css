@@ -54,3 +54,17 @@ header {
     text-decoration: none;
     border-radius: 5px;
 }
+/* Karanlık Mod Renkleri */
+[data-theme="dark"] {
+    background-color: #1a1a1a;
+    color: #ffffff;
+}
+
+[data-theme="dark"] header {
+    background-color: #252525;
+}
+
+[data-theme="dark"] .cta-btn {
+    background-color: #ffcc00;
+    color: #000;
+}
