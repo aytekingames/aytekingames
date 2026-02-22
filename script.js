@@ -1,13 +1,12 @@
-const themeToggle = document.getElementById('theme-toggle');
+const btn = document.getElementById('theme-toggle');
 
-themeToggle.addEventListener('click', () => {
+btn.addEventListener('click', () => {
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    
     if (isDark) {
         document.documentElement.removeAttribute('data-theme');
-        themeToggle.textContent = '🌙';
+        btn.textContent = '🌙';
     } else {
         document.documentElement.setAttribute('data-theme', 'dark');
-        themeToggle.textContent = '☀️';
+        btn.textContent = '☀️';
     }
 });
